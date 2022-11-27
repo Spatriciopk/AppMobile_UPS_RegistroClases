@@ -1,0 +1,7 @@
+{
+  "name": "appUPS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
