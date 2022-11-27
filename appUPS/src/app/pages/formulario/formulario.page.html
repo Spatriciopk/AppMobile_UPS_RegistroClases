@@ -1,0 +1,39 @@
+
+<ion-content>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title  class="title">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+      
+          <ion-item>
+            <a  [class] ="tipoTexto" class="menuNav" routerLink="/formulario">Registro</a>
+          </ion-item>
+      
+        <ion-item>
+          <a  [class] ="tipoTexto" class="menuNav" routerLink="/personalizacion">Personalización</a>
+        </ion-item>
+        <ion-item>
+          <a   [class] ="tipoTexto" class="menuNav" routerLink="">Cerrar Sesión</a>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  
+  </ion-menu>
+  <div class="ion-page" id="main-content" color="primary" >
+    <ion-header >
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="title">Registro</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      Texto
+    </ion-content>
+  </div>
+</ion-content>

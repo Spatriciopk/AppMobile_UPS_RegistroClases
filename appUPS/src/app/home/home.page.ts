@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { DatosService } from '../servicios/datos.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage  {
 
   correo:any;
   clave:any;
   
-  constructor(private datos: DatosService, private toastController: ToastController) {
+  constructor(private datos: DatosService, private toastController: ToastController,private router: Router) {
     
   }
 
@@ -42,7 +43,9 @@ export class HomePage {
         this.presentToast2();
       }
       else{
-        console.log("Bienvenido");
+        this.router.navigate(['formulario']);
+        //window.location.href ="../pages/formulario/formulario.page.html";
+        //console.log("Bienvenido");
       }
 
       }

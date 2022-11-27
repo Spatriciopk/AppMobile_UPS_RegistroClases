@@ -10,7 +10,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'formulario',
+    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
   },
+  {
+    path: 'personalizacion',
+    loadChildren: () => import('./pages/personalizacion/personalizacion.module').then( m => m.PersonalizacionPageModule)
+  },
+
 ];
 
 @NgModule({
