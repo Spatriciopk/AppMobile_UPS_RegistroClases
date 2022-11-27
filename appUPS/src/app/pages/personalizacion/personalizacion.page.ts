@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalizacionPage implements OnInit {
 
+  tipoTexto = 'fuente2';
+
   constructor() { }
 
   ngOnInit() {

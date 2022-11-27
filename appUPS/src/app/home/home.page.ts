@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatosService } from '../servicios/datos.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -33,21 +34,23 @@ export class HomePage  {
     });
     await toast.present();
   }
-  ingresar(){
-      var clave = this.datos.getPersona(this.correo).clave;
-      var correo = this.datos.getPersona(this.correo).correo;
-      if(typeof correo === 'undefined' || typeof clave === 'undefined'){
-        this.presentToast();
-      }
-      else if ( clave != this.clave){
-        this.presentToast2();
-      }
-      else{
-        this.router.navigate(['formulario']);
-        //window.location.href ="../pages/formulario/formulario.page.html";
-        //console.log("Bienvenido");
-      }
+  ingresar(){ 
+    var clave = this.datos.getPersona(this.correo).clave;
+    var correo = this.datos.getPersona(this.correo).correo;
+    if(typeof correo === 'undefined' || typeof clave === 'undefined'){
+      this.presentToast();
+    }
+    else if ( clave != this.clave){
+      this.presentToast2();
+    }
+    else{
+      console.log(this.datos.getPersona(this.correo));
+      this.datos.setData(this.datos.getPersona(this.correo).carreras)
+      this.router.navigate(['formulario']);
+      //window.location.href ="../pages/formulario/formulario.page.html";
+      //console.log("Bienvenido");
+    }
 
-      }
+    }
   }
 

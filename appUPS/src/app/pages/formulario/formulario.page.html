@@ -33,7 +33,34 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      Texto
+      
+      <!-- <ion-list *ngFor="let item of temas">
+        <ion-item >
+          {{item.tema}}
+        </ion-item>
+      </ion-list> -->
+
+      <ion-list>
+        <ion-item>
+          <ion-select interface="action-sheet" placeholder="Seleccione el tema" (ionChange)="getObjetivos( $event )" >
+            <ng-container *ngFor="let item of temas">
+              <ion-select-option value={{item.tema}}>{{item.tema}}</ion-select-option>
+            </ng-container>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select interface="action-sheet" placeholder="Seleccione el objetivo">
+            <ng-container *ngFor="let item of objetivos">
+              <ion-select-option value={{item}}>{{item}}</ion-select-option>
+            </ng-container>
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+
+
+
     </ion-content>
   </div>
 </ion-content>
