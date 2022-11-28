@@ -32,7 +32,47 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      Texto
-    </ion-content>
+      <ion-label > Bienvenido, {{nombre}}</ion-label>
+
+<ion-list>
+  <ion-item>
+
+    <ion-label position="floating">Estilo de letra:</ion-label>
+     
+      <ion-select value=" "   placeholder="Elija su estilo">
+        <ion-select-option value=" "> </ion-select-option>
+        <ion-select-option value=" "> </ion-select-option>
+      </ion-select> 
+
+  </ion-item> 
+
+  <ion-item>
+  <ion-label position="floating">Tamaño de letra:</ion-label> 
+  <ion-input type="number" step="1"  min="1" max="12" placeholder="Tamaño de letra "></ion-input>
+
+  </ion-item> 
+  <ion-item>
+    <ion-label position="floating">Color letra:</ion-label> 
+    <ion-input type="color" placeholder="Color letra"></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="floating">Color botones:</ion-label> 
+    <ion-input type="color" placeholder="Color botones"></ion-input>
+  </ion-item> 
+  <ion-item> 
+    <ion-label>Modo:</ion-label> 
+    <ion-toggle slot="end" [checked]="true"></ion-toggle>
+  </ion-item> 
+  <div class="buttonRegistro">
+    <ion-button>Confirmar</ion-button> 
   </div>
+</ion-list>
+</ion-content> 
+  </div>  
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title>UPS</ion-title>
+  </ion-toolbar>
+</ion-footer>
