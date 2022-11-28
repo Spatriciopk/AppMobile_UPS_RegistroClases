@@ -19,7 +19,7 @@ export class HomePage  {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Campos Obligatorios',
+      message: 'Usuario no encontrado',
       duration: 1500,
       position: 'top'
     });
@@ -34,21 +34,37 @@ export class HomePage  {
     });
     await toast.present();
   }
+
+  async presentToast3() {
+    const toast = await this.toastController.create({
+      message: 'Campos Obligatorios',
+      duration: 1500,
+      position: 'top'
+    });
+    await toast.present();
+  }
+
   ingresar(){ 
     var clave = this.datos.getPersona(this.correo).clave;
     var correo = this.datos.getPersona(this.correo).correo;
-    if(typeof correo === 'undefined' || typeof clave === 'undefined'){
+    if( typeof this.clave === 'undefined' || typeof this.correo==='undefined'){
+      this.presentToast3();
+    }
+    else if(typeof correo === 'undefined' || typeof clave === 'undefined'){
       this.presentToast();
     }
+
     else if ( clave != this.clave){
       this.presentToast2();
     }
     else{
-      console.log(this.datos.getPersona(this.correo));
+      var nombre = this.datos!.getPersona(this.correo).nombre;
+      this.datos.setNombre(nombre);
+      this.datos.setCorreo(correo);
       this.datos.setData(this.datos.getPersona(this.correo).carreras)
       this.router.navigate(['formulario']);
-      //window.location.href ="../pages/formulario/formulario.page.html";
-      //console.log("Bienvenido");
+
+
     }
 
     }

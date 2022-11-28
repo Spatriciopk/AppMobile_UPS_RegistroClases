@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Carreras,MallasEntity,MateriasEntity,Horario,TemasEntity } from '../../interfaces/interface'
+import { Carreras, MallasEntity, MateriasEntity, Horario, TemasEntity } from '../../interfaces/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,11 @@ import { Carreras,MallasEntity,MateriasEntity,Horario,TemasEntity } from '../../
 export class DatosService {
 
   private json_ele!:Carreras[];
-  private carrera!:string;
+  private carrera!:Carreras[];
   private malla!:string;
   private materia!: MateriasEntity;
+  private nombre: any;
+  private correo: any;
 
   private persona = [
     {
@@ -31,7 +33,7 @@ export class DatosService {
                     horas: ["16:00 - 18:00","18:00 - 20:22"] 
                   },
                   laboratorio: "IHM",
-                  alumnos: 15,
+                  alumnos: 20,
                   temas: [
                     {
                       tema: "Introducción a las plataformas móviles.",
@@ -39,7 +41,7 @@ export class DatosService {
                     },
                     {
                       tema: "Arquitectura de aplicaciones móviles.",
-                      objetivos : ["Identifica las arquitecturas para el desarrollo de aplicaciones en dispositivos móviles."]
+                      objetivos : ["asdfIdentifica las arquitecturas para el desarrollo de aplicaciones en dispositivos móviles."]
                     },
                     {
                       tema: "Lenguajes de programación nativos",
@@ -100,7 +102,7 @@ export class DatosService {
                     horas: ["16:00 - 18:00","18:00 - 20:00"] 
                   },
                   laboratorio: "IHM",
-                  alumnos: 15,
+                  alumnos: 10,
                   temas: [
                     {
                       tema: "Introducción a las plataformas móviles.",
@@ -116,7 +118,7 @@ export class DatosService {
                     },
                     {
                       tema: "Lenguajes de programación multiplataforma.",
-                      objetivos : ["Experimenta los diferentes entornos y lenguajes de de aplicaciones móviles"]
+                      objetivos : ["fExperimenta los diferentes entornos y lenguajes de de aplicaciones móviles"]
                     }
                   ]
                 }
@@ -154,6 +156,8 @@ export class DatosService {
     return this.json_ele;
   }
 
+
+
   setDatos(materia:string){
     let encontro = false;
     // for (let i = 0; i< this.json_ele.length;i++){
@@ -164,7 +168,8 @@ export class DatosService {
             console.log(p.mallas![i].materias![j]);
             if (p.mallas![i].materias![j].materia == materia){
               console.log("Es igual");
-              this.carrera = p.carrera;
+              //this.carrera = p.carrera;
+              console.log(this.carrera);
               this.malla = p.mallas![i].malla;
               this.materia = p.mallas![i].materias![j];
             }
@@ -182,5 +187,40 @@ export class DatosService {
   getTemas(){
     return this.materia.temas;
   }  
+
+  setNombre(nombre: any){
+      this.nombre = nombre;
+  }
+
+  getNombre(){
+    return this.nombre;
+  }
+
+  setCorreo(correo: any){
+    this.correo = correo;
+}
+
+getCorreo(){
+  return this.correo;
+}
+
+
+  getCarrera(correo: string){
+    
+    return this.getPersona(correo).carreras;
+  }
+
+  getMalla(carrera: string){
+    var malla;
+    this.json_ele.find(p => {
+      if(p.carrera = carrera){
+         malla = p.mallas;
+          console.log(p.mallas);
+      }
+    })
+    
+ 
+    return malla;
+  }
 
 }
