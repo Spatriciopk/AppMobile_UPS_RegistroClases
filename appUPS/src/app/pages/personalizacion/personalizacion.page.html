@@ -1,78 +1,37 @@
-<ion-content>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title  class="title">Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-      
-          <ion-item>
-            <a  [class] ="tipoTexto" class="menuNav" routerLink="/formulario">Registro</a>
-          </ion-item>
-      
-        <ion-item>
-          <a  [class] ="tipoTexto" class="menuNav" routerLink="/personalizacion">Personalización</a>
-        </ion-item>
-        <ion-item>
-          <a   [class] ="tipoTexto" class="menuNav" routerLink="">Cerrar Sesión</a>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  
-  </ion-menu>
-  <div class="ion-page" id="main-content" color="primary" >
+<ion-content color = "red">
+  <div class="ion-page" >
     <ion-header >
-      <ion-toolbar color="primary">
+      <ion-toolbar [color]="color" >
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button menu="menuPrincipal"></ion-menu-button>
         </ion-buttons>
-        <ion-title class="title">Personalización</ion-title>
+        <ion-title class="title {{fuenteSelect}}">Tema</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
-      <ion-label > Bienvenido, {{nombre}}</ion-label>
+    <ion-content class="ion-padding" [class]="fuenteSelect" [class]="fondoSelect">
+      <ion-label [class]="fuenteSelect"> Bienvenido, {{nombre}}</ion-label>
 
-<ion-list>
-  <ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Seleccione el estilo:</ion-label>    
+            <ion-select placeholder="Elija su estilo" (ionChange)="updateStyle()" [(ngModel)] = temaSelect>
+              <ng-container *ngFor="let estilo of estilos">
+                <ion-select-option value={{estilo.nombre}}> {{estilo.nombre}} </ion-select-option>
+              </ng-container>
+            </ion-select> 
 
-    <ion-label position="floating">Estilo de letra:</ion-label>
-     
-      <ion-select value=" "   placeholder="Elija su estilo">
-        <ion-select-option value=" "> </ion-select-option>
-        <ion-select-option value=" "> </ion-select-option>
-      </ion-select> 
+        </ion-item> 
 
-  </ion-item> 
-
-  <ion-item>
-  <ion-label position="floating">Tamaño de letra:</ion-label> 
-  <ion-input type="number" step="1"  min="1" max="12" placeholder="Tamaño de letra "></ion-input>
-
-  </ion-item> 
-  <ion-item>
-    <ion-label position="floating">Color letra:</ion-label> 
-    <ion-input type="color" placeholder="Color letra"></ion-input>
-  </ion-item> 
-  <ion-item>
-    <ion-label position="floating">Color botones:</ion-label> 
-    <ion-input type="color" placeholder="Color botones"></ion-input>
-  </ion-item> 
-  <ion-item> 
-    <ion-label>Modo:</ion-label> 
-    <ion-toggle slot="end" [checked]="true"></ion-toggle>
-  </ion-item> 
-  <div class="buttonRegistro">
-    <ion-button>Confirmar</ion-button> 
-  </div>
-</ion-list>
+        <div class="buttonRegistro {{fuenteSelect}}">
+          <ion-button [color]="color">Confirmar</ion-button> 
+        </div>
+      </ion-list>
 </ion-content> 
   </div>  
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary">
+  <ion-toolbar [color]="color">
     <ion-title>UPS</ion-title>
   </ion-toolbar>
 </ion-footer>

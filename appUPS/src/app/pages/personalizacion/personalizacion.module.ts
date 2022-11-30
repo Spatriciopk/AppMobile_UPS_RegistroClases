@@ -8,12 +8,15 @@ import { PersonalizacionPageRoutingModule } from './personalizacion-routing.modu
 
 import { PersonalizacionPage } from './personalizacion.page';
 
+
+import { ComponentsModule } from '../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PersonalizacionPageRoutingModule
+    PersonalizacionPageRoutingModule,
   ],
   declarations: [PersonalizacionPage]
 })

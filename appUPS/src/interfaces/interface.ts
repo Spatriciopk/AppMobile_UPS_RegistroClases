@@ -1,24 +1,28 @@
-export interface Carreras {
-    carrera: string;
-    mallas?: (MallasEntity)[] | null;
-  }
-  export interface MallasEntity {
-    malla: string;
-    materias?: (MateriasEntity)[] | null;
-  }
-  export interface MateriasEntity {
-    materia: string;
-    horario: Horario;
+export interface Profesor {
+    nombre:  string;
+    correo: string;
+    clave:  string;
+    dias:   Dia[];
+}
+
+export interface Dia {
+    dia:      number;
+    materias: Materia[];
+}
+
+export interface Materia {
+    materia:     string;
+    horaIni:     number;
+    horaFin:     number;
+    malla:       string;
+    carrera:     string;
+    alumnos:     number;
     laboratorio: string;
-    alumnos: number;
-    temas?: (TemasEntity)[] | null;
-  }
-  export interface Horario {
-    dias?: (string)[] | null;
-    horas?: (string)[] | null;
-  }
-  export interface TemasEntity {
-    tema: string;
-    objetivos?: (string)[] | null;
-  }
+    temas:       Tema[];
+}
+
+export interface Tema {
+    tema:      string;
+    objetivos: string[];
+}
   

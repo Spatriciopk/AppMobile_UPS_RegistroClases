@@ -61,7 +61,7 @@ export class HomePage  {
       var nombre = this.datos!.getPersona(this.correo).nombre;
       this.datos.setNombre(nombre);
       this.datos.setCorreo(correo);
-      this.datos.setData(this.datos.getPersona(this.correo).carreras)
+      this.datos.setInformation(this.correo,3);
       this.router.navigate(['formulario']);
 
 

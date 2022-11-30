@@ -1,0 +1,23 @@
+<ion-menu side="start" menuId="menuPrincipal" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title  class="title">Menu</ion-title>
+    </ion-toolbar>
+    <ion-menu-toggle>
+      <ion-list>
+          <ion-item routerLink = "/formulario">
+            <ion-label [class] = "tipoTexto">Formulario</ion-label>
+          </ion-item>
+      
+        <ion-item routerLink = "/personalizacion">
+          <ion-label [class] = "tipoTexto">Personalización</ion-label>
+        </ion-item>
+  
+        <ion-item routerLink = "/">
+          <ion-label [class] = "tipoTexto">Cerrar Sesion</ion-label>
+        </ion-item>
+        
+      </ion-list>
+    </ion-menu-toggle>
+  </ion-header>
+</ion-menu>

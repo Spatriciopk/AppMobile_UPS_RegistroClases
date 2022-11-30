@@ -8,6 +8,8 @@ import { FormularioPageRoutingModule } from './formulario-routing.module';
 
 import { FormularioPage } from './formulario.page';
 
+import { ComponentsModule } from '../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,

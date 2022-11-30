@@ -1,33 +1,9 @@
-
 <ion-content>
-  <ion-menu contentId="main-content">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title  class="title">Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-      
-          <ion-item>
-            <a  [class] ="tipoTexto" class="menuNav" routerLink="/formulario">Registro</a>
-          </ion-item>
-      
-        <ion-item>
-          <a  [class] ="tipoTexto" class="menuNav" routerLink="/personalizacion">Personalización</a>
-        </ion-item>
-        <ion-item>
-          <a   [class] ="tipoTexto" class="menuNav" routerLink="">Cerrar Sesión</a>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  
-  </ion-menu>
-  <div class="ion-page" id="main-content" color="primary" >
+  <div class="ion-page" color="primary">
     <ion-header >
       <ion-toolbar color="primary">
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button menu="menuPrincipal"></ion-menu-button>
         </ion-buttons>
         <ion-title class="title">Registro</ion-title>
       </ion-toolbar>
@@ -36,33 +12,20 @@
       <ion-label > Bienvenido, {{nombre}}</ion-label>
 
       <ion-list>
-
         <ion-item>
-          <ion-select interface="action-sheet" placeholder="Seleccione la carrera" (ionChange)="getMallas( $event )" >
-            <ng-container *ngFor="let item of carrera">
-              <ion-select-option value={{item.carrera}}>{{item.carrera}}</ion-select-option>
-            </ng-container>
-          </ion-select>
+          <ion-label position="floating" > Carrera </ion-label>
+          <ion-input type="text" value= {{carrera}} [readonly]="true"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-select interface="action-sheet" placeholder="Seleccione la malla"  (ionChange)="getMateria( $event )">
-            <ng-container *ngFor="let item of malla">
-              <ion-select-option value={{item.malla}}>{{item.malla}}</ion-select-option>
-            </ng-container>
-          </ion-select>
+          <ion-label position="floating" > Malla </ion-label>
+          <ion-input type="text" value= {{malla}} [readonly]="true"></ion-input>
         </ion-item>
-
 
         <ion-item>
-          <ion-select interface="action-sheet" placeholder="Seleccione la materia" (ionChange)="getTemas( $event )" >
-            <ng-container *ngFor="let item of materia">
-              <ion-select-option value={{item.materia}}>{{item.materia}}</ion-select-option>
-            </ng-container>
-          </ion-select>
-        </ion-item>
-
-
+          <ion-label position="floating" > Materia</ion-label>
+          <ion-input type="text" value= {{nombre_materia}} [readonly]="true"></ion-input>
+        </ion-item>  
 
         <ion-item>
           <ion-select interface="action-sheet" placeholder="Seleccione el tema" (ionChange)="getObjetivos( $event )" >
@@ -84,6 +47,10 @@
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label position="floating">Laboratorio</ion-label>
+        <ion-input type="text" value= {{laboratorio}} [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label position="floating">Equipos Utilizados</ion-label>
         <ion-input type="number" value = {{numEstudiantes}}    min="0" max="30"  maxlength="2"></ion-input>
       </ion-item>
@@ -93,7 +60,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Horario</ion-label>
-        <ion-input type="text" value= {{horario}}></ion-input>
+        <ion-input type="text" value= {{hora}} [readonly]="true"></ion-input>
       </ion-item>
       </ion-list>
       <div class="buttonRegistro">
